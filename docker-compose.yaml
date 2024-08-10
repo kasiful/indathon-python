@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  jupyterlab:
+    build: .
+    container_name: jupyterlab
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./jupyter_data:/home/conda/jupyterlab
+      - ./jupyterlab_data:/jupyterlab
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    restart: no
+
+volumes:
+  jupyter_data:
